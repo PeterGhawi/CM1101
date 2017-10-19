@@ -262,19 +262,13 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
-    found=False
-
     for item in inventory:
-        if item["id"]== item_id:
-            found=True
-            itemtodrop = item
-            break 
-        if found==True:
-            print("You dropped "+str(itemtodrop["id"]+"."))
-            current_room["items"].append(itemtodrop)
-            inventory.remove(itemtodrop)
-        else:
-            print ("You cannot drop that")
+        if item["id"] == item_id:
+            inventory.remove(item)
+            current_room["items"].append(item)
+            return
+
+    print("You cannot drop that.")
 
    
 def execute_command(command):
