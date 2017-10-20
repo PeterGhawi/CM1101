@@ -1,1 +1,1 @@
-print ("Anothr")
+print ("Another")
